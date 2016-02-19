@@ -196,7 +196,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * ``lacp_bypass_period`` - Period for enable lacp_bypass.
 * ``lacp_bypass_priority`` - Array of ports and priority
 * ``lacp_bypass_all_active`` - Activate all interfaces for bypass: 0 or 1.
-* ``use-carrier`` - Specifies whether or not miimon should use MII or Ethtool ioctls. Default is 1.
+* ``use_carrier`` - Specifies whether or not miimon should use MII or Ethtool ioctls. Default is 1.
 
 #### `cumulus_bridge`
 
