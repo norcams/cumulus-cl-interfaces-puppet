@@ -163,6 +163,16 @@ Puppet::Type.newtype(:cumulus_bond) do
     end
   end
 
+  newparam(:use_carrier) do
+    desc "Specifies whether or not miimon should use MII or ETHTOOL
+      ioctls vs. netif_carrier_ok() to determine the link
+        status. If not mentioned default is 1"
+    newvalues(0, 1)
+    munge do |value|
+      @resource.munge_integer(value)
+    end
+  end
+
   newparam(:miimon) do
     desc 'mii link monitoring interval'
     defaultto 100

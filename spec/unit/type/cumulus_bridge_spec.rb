@@ -19,6 +19,7 @@ describe cl_iface do
       :location,
       :mstpctl_treeprio,
       :vlan_aware,
+      :mcsnoop,
       :ports
     ]
   end
