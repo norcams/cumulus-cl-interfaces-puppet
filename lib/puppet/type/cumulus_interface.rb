@@ -121,7 +121,7 @@ Puppet::Type.newtype(:cumulus_interface) do
            boolean: true,
            parent: Puppet::Parameter::Boolean) do
     desc 'enable CLAG on the interface. Interface must be in vlan \
-    aware mode. clagd_enable, clagd_peer_ip,
+    aware mode. clagd_enable, clagd_peer_ip, clagd_backup_ip,
     clagd_sys_mac must be configured together'
   end
 
@@ -137,6 +137,10 @@ Puppet::Type.newtype(:cumulus_interface) do
   newparam(:clagd_peer_ip) do
     desc 'clagd peerlink adjacent port IP. clagd_enable,
     clagd_peer_ip, clagd_sys_mac and clagd_sys_mac must be configured together'
+  end
+
+  newparam(:clagd_backup_ip) do
+    desc 'Specify a backup link for your peers in the event that the peer link goes down. clagd_enable must be enabled for this config to work'
   end
 
   newparam(:clagd_sys_mac) do
@@ -168,6 +172,12 @@ Puppet::Type.newtype(:cumulus_interface) do
       if self[:clagd_enable].nil?
         fail Puppet::Error, 'Clagd must be enabled for clagd_priority
         to be active'
+      end
+    end
+
+    unless self[:clagd_backup_ip].nil?
+      if self[:clagd_enable].nil?
+        fail Puppet::Error, 'Clagd must be enabled for clag_backup_ip to be applied'
       end
     end
 

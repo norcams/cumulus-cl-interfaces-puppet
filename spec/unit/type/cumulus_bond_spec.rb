@@ -19,6 +19,7 @@ describe cl_iface do
       :clag_id,
       :mode, :miimon, :min_links, :lacp_rate,
       :xmit_hash_policy,
+      :use_carrier,
       :lacp_bypass_allow, :lacp_bypass_period, :lacp_bypass_priority, :lacp_bypass_all_active
     ]
   end

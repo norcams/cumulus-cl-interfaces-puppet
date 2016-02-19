@@ -21,7 +21,8 @@ describe cl_iface do
       :clagd_priority,
       :clagd_peer_ip,
       :clagd_sys_mac,
-      :clagd_args
+      :clagd_args,
+      :clagd_backup_ip
     ]
   end
 
@@ -88,10 +89,35 @@ describe cl_iface do
                              clagd_enable: true,
                              clagd_priority: 2000,
                              clagd_sys_mac: '44:38:38:ff:00:11',
-                             clagd_peer_ip: '10.1.1.1/24')
+                             clagd_peer_ip: '10.1.1.1')
               end.to_not raise_error
             end
           end
+          context 'if clagd_backup_ip is specified' do
+            context 'and clagd_enable' do
+              context ' is not set' do
+                it do
+                  expect do
+                    cl_iface.new(name: 'swp1',
+                                 clagd_backup_ip: '1.1.1.1')
+                  end.to raise_error
+                end
+              end
+              context 'is set' do
+                it do
+                  expect do
+                    cl_iface.new(name: 'swp1',
+                                 clagd_enable: true,
+                                 clagd_priority: 2000,
+                                 clagd_sys_mac: '44:38:38:ff:00:11',
+                                 clagd_peer_ip: '10.1.1.1',
+                                 clagd_backup_ip: '10.1.2.1')
+                  end.to_not raise_error
+                end
+              end
+            end
+          end
+
           context 'if clagd_args is specified' do
             context 'and clagd_enable' do
               context ' is not set' do
@@ -109,7 +135,7 @@ describe cl_iface do
                                  clagd_enable: true,
                                  clagd_priority: 2000,
                                  clagd_sys_mac: '44:38:38:ff:00:11',
-                                 clagd_peer_ip: '10.1.1.1/24',
+                                 clagd_peer_ip: '10.1.1.1',
                                  clagd_args: '--vm')
                   end.to_not raise_error
                 end

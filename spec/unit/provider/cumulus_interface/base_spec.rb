@@ -24,7 +24,8 @@ describe provider_class do
       mtu: 9000,
       clagd_enable: true,
       clagd_sys_mac: '44:38:39:ff:20:94',
-      clagd_peer_ip: '10.1.1.1'
+      clagd_peer_ip: '10.1.1.1',
+      clagd_backup_ip: '10.1.2.1'
 
     )
     @provider = provider_class.new(@resource)
@@ -205,6 +206,10 @@ describe provider_class do
     context 'clagd_peer_ip' do
       subject { confighash['config']['clagd-peer-ip'] }
       it { is_expected.to eq '10.1.1.1' }
+    end
+    context 'clagd_backup_ip' do
+      subject { confighash['config']['clagd-backup-ip'] }
+      it { is_expected.to eq '10.1.2.1' }
     end
   end
 end
