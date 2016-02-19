@@ -22,9 +22,9 @@ The module consists of three resources types:
 
 ### cumulus_interface
 
-This resource type configures a network interface using [ifupdown2](http://docs.cumulusnetworks.com/display/CL25/Network+Interface+Management+Using+ifupdown2). The configuration for the interface is written to a file in the interface configuration file directory. This resource type does not configure VXLAN, bond, or bridge interfaces. 
+This resource type configures a network interface using [ifupdown2](http://docs.cumulusnetworks.com/display/CL25/Network+Interface+Management+Using+ifupdown2). The configuration for the interface is written to a file in the interface configuration file directory. This resource type does not configure VXLAN, bond, or bridge interfaces.
 
-For bridge configuration use the `cumulus_bridge` module. 
+For bridge configuration use the `cumulus_bridge` module.
 
 For bond configuration use the `cumulus_bond` module.
 
@@ -156,7 +156,7 @@ cumulus_bridge { 'bridge':
 * `location` - Location of the configuration snippets directory. Default is `/etc/network/interfaces.d/`.
 * `mstpctl_portnetwork` - Enables bridge assurance on a VLAN-aware trunk.
 * `mstpctl_bpduguard` - Enables BPDU guard on a VLAN-aware trunk.
-* `mstpctl_portadminedge` - Enables admin edgeport 
+* `mstpctl_portadminedge` - Enables admin edgeport
 
 The following CLAG-related attributes are also available. If CLAG is enabled, you must specify ``clagd_enable``,``clagd_priority``, ``clagd_peer_id`` and ``clagd_sys_mac``:
 
@@ -165,6 +165,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * ``clagd_peer_id`` - Address of the CLAG peer switch.
 * ``clagd_sys_mac`` - CLAG system MAC address. The MAC address must be identical on both CLAG peers.
 * ``clagd_args`` - Any additional arguments to be passed to the `clagd` deamon.
+* ``clagd_backup_ip`` -  backup IP address to communicate with the peer switch, in case the peer link is down but the peer switch is up
 
 #### `cumulus_bond`
 
@@ -195,7 +196,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * ``lacp_bypass_period`` - Period for enable lacp_bypass.
 * ``lacp_bypass_priority`` - Array of ports and priority
 * ``lacp_bypass_all_active`` - Activate all interfaces for bypass: 0 or 1.
-
+* ``use-carrier`` - Specifies whether or not miimon should use MII or Ethtool ioctls. Default is 1.
 
 #### `cumulus_bridge`
 
@@ -215,6 +216,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * `vids` - Array of VLANs to be configured for a VLAN-aware trunk interface.
 * `pvid` - Native VLAN for a VLAN-aware trunk interface.
 * `location` - Location of the configuration snippets directory. Default is `/etc/network/interfaces.d/`.
+* `mcsnoop` -  Enables IGMP/MLD Snooping on the bridge. Default is 0.
 
 ## Limitations
 
