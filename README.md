@@ -64,6 +64,11 @@ cumulus_interface { 'lo':
 cumulus_interface { 'eth0':
   addr_method => 'dhcp',
 }
+
+cumulus_interface { 'eth0':
+  ipv4    => ['192.168.0.10/24'],
+  gateway => '192.168.0.1',
+}
 ```
 
 *swp33* as a 1GbE port with a single IPv4 address:
@@ -145,6 +150,7 @@ cumulus_bridge { 'bridge':
 * `name` - Identifier for the interface.
 * `ipv4` - Array of IPv4 addresses to be applied to the interface.
 * `ipv6` - Array of IPv6 addresses to be applied to the interface.
+* `gateway` - String of default gateway to be added with the interface.
 * `alias_name` - Interface alias.
 * `addr_method` - Address assignment method, `dhcp` or `loopback`. Default is empty (no address method is set).
 * `speed` - The interface link speed.
@@ -180,6 +186,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * ``lacp_rate`` - LACP bond rate. Default is 1 (fast LACP timeout).
 * ``ipv4`` - Array of IPv4 addresses to be applied to the interface.
 * ``ipv6`` - Array of IPv6 addresses to be applied to the interface.
+* ``gateway`` - String of default gateway to be added with the interface.
 * ``alias_name`` - Interface alias.
 * ``addr_method`` - Address assignment method. May be `dhcp` or empty. Default is empty (no address method is set).
 * ``mtu`` - The interface Maximum Transmission Unit (MTU).
@@ -205,6 +212,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * `name` - Identifier for the bridge interface.
 * `ipv4` - Array of IPv4 addresses to be applied to the interface.
 * `ipv6` - Array of IPv6 addresses to be applied to the interface.
+* `gateway` - String of default gateway to be added with the interface.
 * `alias_name` - Interface alias.
 * `addr_method` - Address assignment method. May be `dhcp` or empty. Default is empty (no address method is set).
 * `mtu` - The interface Maximum Transmission Unit (MTU).
