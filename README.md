@@ -1,6 +1,6 @@
 # cumulus_interface
 
-NOTE: This module has been **deprecated**. For more information on transitioning to current best practices, see [this knowledge base article](https://support.cumulusnetworks.com/hc/en-us/articles/115010587028)
+NOTE: This module has been **deprecated**. For more information on transitioning to current best practices, please read [this knowledge base article](https://support.cumulusnetworks.com/hc/en-us/articles/115010587028).
 
 #### Table of Contents
 
