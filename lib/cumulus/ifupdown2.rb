@@ -129,6 +129,18 @@ class Ifupdown2Config
     @confighash['config']['link-fec'] = @resource[:fec].to_s
   end
 
+  def update_vrf
+    return if @resource[:vrf].nil?
+    Puppet.debug "configuring vrf #{@resource[:name]}"
+    @confighash['config']['vrf'] = @resource[:vrf].to_s
+  end
+
+  def update_vrf_table
+    return if @resource[:vrf_table].nil?
+    Puppet.debug "configuring vrf-table #{@resource[:name]}"
+    @confighash['config']['vrf-table'] = @resource[:vrf_table].to_s
+  end
+
   # updates vrr config in config hash
   def update_vrr
     return if @resource[:virtual_ip].nil?

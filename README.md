@@ -158,6 +158,8 @@ cumulus_bridge { 'bridge':
 * `speed` - The interface link speed.
 * `mtu` - The interface Maximum Transmission Unit (MTU).
 * `fec` - Optionally configure Forward Error Correction for an interface, `baser`, `rs` or `off`.
+* `vrf_table` - Configure a VRF and optionally assign a table number between 1001 and 1255, `auto`, or `tablenum`.
+* `vrf` - Assign interface to a VRF.
 * `virtual_ip` - VRR virtual IP address.
 * `virtual_mac` - VRR virtual MAC address.
 * `vids` - Array of VLANs to be configured for a VLAN-aware trunk interface.

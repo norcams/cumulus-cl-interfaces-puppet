@@ -67,6 +67,14 @@ Puppet::Type.newtype(:cumulus_interface) do
     desc 'configure Forward Error Correction. Valid values are baser, rs and off'
   end
 
+  newparam(:vrf) do
+    desc 'assign interface to a VRF. Valid values are either a VRF name or VRF table number'
+  end
+
+  newparam(:vrf_table) do
+    desc 'create a VRF. Valid values are either a VRF table number between 1001 and 1255, or auto'
+  end
+
   newparam(:mtu) do
     desc 'link mtu. Can be 1500 to 9000 KBs'
     munge do |value|
