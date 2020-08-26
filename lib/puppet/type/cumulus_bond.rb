@@ -105,6 +105,12 @@ Puppet::Type.newtype(:cumulus_bond) do
     desc 'configures port adminedge.'
   end
 
+  newparam(:mstpctl_portbpdufilter,
+           boolean: false,
+           parent: Puppet::Parameter::Boolean) do
+    desc 'configures bpdu filter.'
+  end
+
   newparam(:clag_id) do
     desc 'Define which bond is in clag. the ID must the
     same for the corresponding bond on the adjacent switch'

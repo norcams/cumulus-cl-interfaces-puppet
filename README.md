@@ -168,6 +168,7 @@ cumulus_bridge { 'bridge':
 * `mstpctl_portnetwork` - Enables bridge assurance on a VLAN-aware trunk.
 * `mstpctl_bpduguard` - Enables BPDU guard on a VLAN-aware trunk.
 * `mstpctl_portadminedge` - Enables admin edgeport
+* `mstpctl_portbpdufilter` - Enables bpdu filter
 
 The following CLAG-related attributes are also available. If CLAG is enabled, you must specify ``clagd_enable``,``clagd_priority``, ``clagd_peer_id`` and ``clagd_sys_mac``:
 
@@ -203,6 +204,7 @@ The following CLAG-related attributes are also available. If CLAG is enabled, yo
 * ``mstpctl_portnetwork`` - Enable bridge assurance on a VLAN-aware trunk.
 * ``mstpctl_bpduguard`` - Enable BPDU guard on a VLAN-aware trunk.
 * ``mstpctl_portadminedge`` - Enables admin edgeport
+* ``mstpctl_portbpdufilter`` - Enables bpdu filter
 * ``clag_id`` - Define which bond is in the CLAG. The ID must be the same on both CLAG peers.
 * ``lacp_bypass_allow`` - Enable LACP bypass, valid options are 0 or 1.
 * ``lacp_bypass_period`` - Period for enable lacp_bypass.

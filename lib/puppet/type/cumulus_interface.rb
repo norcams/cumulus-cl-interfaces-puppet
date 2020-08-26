@@ -129,6 +129,12 @@ Puppet::Type.newtype(:cumulus_interface) do
     desc 'configures port adminedge.'
   end
 
+  newparam(:mstpctl_portbpdufilter,
+           boolean: false,
+           parent: Puppet::Parameter::Boolean) do
+    desc 'configures bpdu filter.'
+  end
+
   newparam(:clagd_enable,
            boolean: true,
            parent: Puppet::Parameter::Boolean) do
