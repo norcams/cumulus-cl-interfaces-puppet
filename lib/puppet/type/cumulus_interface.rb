@@ -67,7 +67,7 @@ Puppet::Type.newtype(:cumulus_interface) do
     desc 'configure Forward Error Correction. Valid values are baser, rs and off'
   end
 
-  newparam(:autoneg) do
+  newparam(:link_autoneg) do
     desc 'configure link auto negotiation, valid values are yes, on, no or off'
   end
 

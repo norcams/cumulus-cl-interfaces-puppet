@@ -130,9 +130,9 @@ class Ifupdown2Config
   end
 
   def update_autoneg
-    return if @resource[:fec].nil?
-    Puppet.debug "configuring autoneg #{@resource[:name]}"
-    @confighash['config']['autoneg'] = @resource[:autoneg].to_s
+    return if @resource[:link_autoneg].nil?
+    Puppet.debug "configuring link-autoneg #{@resource[:name]}"
+    @confighash['config']['link-autoneg'] = @resource[:link_autoneg].to_s
   end
 
   def update_vrf
