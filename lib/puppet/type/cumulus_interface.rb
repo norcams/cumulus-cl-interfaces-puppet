@@ -67,6 +67,10 @@ Puppet::Type.newtype(:cumulus_interface) do
     desc 'configure Forward Error Correction. Valid values are baser, rs and off'
   end
 
+  newparam(:autoneg) do
+    desc 'configure link auto negotiation, valid values are yes, on, no or off'
+  end
+
   newparam(:vrf) do
     desc 'assign interface to a VRF. Valid values are either a VRF name or VRF table number'
   end

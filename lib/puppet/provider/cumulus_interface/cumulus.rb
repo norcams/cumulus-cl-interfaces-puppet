@@ -6,6 +6,7 @@ Puppet::Type.type(:cumulus_interface).provide :cumulus do
     config = Ifupdown2Config.new(resource)
     config.update_speed
     config.update_fec
+    config.update_autoneg
     config.update_vrf
     config.update_vrf_table
     config.update_addr_method
