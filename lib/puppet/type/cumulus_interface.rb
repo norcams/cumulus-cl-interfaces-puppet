@@ -139,6 +139,12 @@ Puppet::Type.newtype(:cumulus_interface) do
     desc 'configures bpdu filter.'
   end
 
+  newparam(:bridge_allow_untagged,
+           boolean: true,
+           parent: Puppet::Parameter::Boolean) do
+    desc 'configure a switch port to drop untagged frames'
+  end
+
   newparam(:clagd_enable,
            boolean: true,
            parent: Puppet::Parameter::Boolean) do
