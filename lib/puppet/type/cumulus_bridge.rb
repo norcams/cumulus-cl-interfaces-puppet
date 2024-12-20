@@ -46,6 +46,10 @@ Puppet::Type.newtype(:cumulus_bridge) do
     desc 'interface description'
   end
 
+  newparam(:vrf) do
+    desc 'interface vrf assignment'
+  end
+
   newparam(:addr_method) do
     desc 'address assignment method'
     newvalues(:dhcp)
