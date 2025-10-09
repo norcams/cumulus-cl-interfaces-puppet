@@ -182,6 +182,12 @@ Puppet::Type.newtype(:cumulus_interface) do
     clagd parameters. It is optional'
   end
 
+  newparam(:clagd_vxlan_anycast_ip) do
+    desc 'anycast ip for clagd, configured on the lo interface. This parameters
+    only makes sense on the lo interface, and clagd will stop working if not configured
+    on both switches'
+  end
+
   newparam(:gateway) do
     desc 'default gateway'
   end
