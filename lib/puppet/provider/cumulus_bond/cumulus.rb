@@ -16,6 +16,7 @@ Puppet::Type.type(:cumulus_bond).provide :cumulus do
     end
     config.update_alias_name
     config.update_vrr
+    config.update_vrf
     # attributes with no suffix like bond-, or bridge-
     %w(mstpctl_portnetwork mstpctl_bpduguard mstpctl_portadminedge mstpctl_portbpdufilter clag_id mtu gateway).each do |attr|
       config.update_attr(attr)

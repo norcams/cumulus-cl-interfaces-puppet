@@ -13,6 +13,7 @@ Puppet::Type.type(:cumulus_bridge).provide :cumulus do
     end
     config.update_alias_name
     config.update_vrr
+    config.update_vrf
     # attributes with no suffix like bond-, or bridge-
     %w(mstpctl_treeprio mtu gateway).each do |attr|
       config.update_attr(attr)
